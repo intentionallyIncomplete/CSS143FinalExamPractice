@@ -9,13 +9,11 @@ public class PassByValueReview {
 		increase(b);
 		
 		System.out.println("b (after the increase method is executed):" + b);
-		
-		System.out.println("Printing the increase() method: " + increase(b));
 	}
 	
-	public static int increase(int b){
+	public static void increase(int b){
 		b++; //increase b by 1 for each call
-		System.out.println("b's current value (inside the method): " + b);
-		return b;
+		System.out.println("b's current value (inside the method using the start"
+				+ "point of b's value as a parameter): " + b);
 	}
 }
