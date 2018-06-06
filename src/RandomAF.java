@@ -9,11 +9,7 @@ public class RandomAF {
         int min = list[0];
             for(int i=1;i<list.length;i++){
                 if(list[i] < min){
-                    return list[i];
-                }
-                
-                else{
-                    return min;
+                    min = list[i];
                 }
         }
         return min;
