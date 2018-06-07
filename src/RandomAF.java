@@ -1,15 +1,42 @@
+import java.util.ArrayList;
+
 public class RandomAF {
 	public static void main(String args[]) {
 
-		int[] list = {16, 12, 25, 44};
-		System.out.println(rotateRight(list));
+		ArrayList<String> list = new ArrayList<>();
+//		list.add("one");
+//		list.add("fourfivesix");
+//		list.add("two");
+//		list.add("three");
+		System.out.println(maxLength(list));
+
 	}
 
-	public static int[] rotateRight(int[] list){
-	    
-	    for(int i=list.length-1;i>0;i--){
-	        list[0] = list[i];
-	    }
-	    return list;
+	public static int maxLength(ArrayList<String> list){
+
+		//ArrayList<Integer> strLengths = new ArrayList<>();
+		int maxLengthStr = 0;
+		if(list.size() == 1){
+			maxLengthStr = list.get(0).length();
+		}
+		for(int i=0;i<list.size()-1;i++){
+			if(list.get(i).length() > maxLengthStr){
+				maxLengthStr = list.get(i).length();
+			}
+		}
+		
+		
+//		for(String s : list){
+//			strLengths.add(s.length());
+//		}
+//		
+//		for(int i : strLengths){
+//			if(i > strLengths.indexOf(i)){
+//				maxLengthStr = i;
+//			}else{
+//				maxLengthStr = strLengths.indexOf(i);
+//			}
+//		}
+		return maxLengthStr;
 	}
 }
