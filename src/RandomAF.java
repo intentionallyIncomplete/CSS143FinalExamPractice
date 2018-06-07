@@ -4,34 +4,30 @@ public class RandomAF {
 	public static void main(String args[]) {
 
 		ArrayList<Integer> list = new ArrayList<>();
-		list.add(14);
-		list.add(29);
-		list.add(12);
-		list.add(7);
-		list.add(25);
-		list.add(18);
-		System.out.println(range(list));
+		list.add(1);
+		list.add(2);
+		list.add(3);
+		list.add(0);
+		System.out.println(minToFront(list));
 
 	}
 
-	public static int range(ArrayList<Integer> list){
-	    int smallest = list.get(0); 
-	    int largest = 0;
-	    
-	    if(list.size() == 1){
-	        return 0;
+	public static ArrayList<Integer> minToFront(ArrayList<Integer> list){
+		
+		int min = list.get(0).intValue();
+		
+		if(list.size() == 1){
+			return list;
+		}else{
+			for(int i=1;i<list.size();i++){
+	        if(list.get(i).intValue() < min){
+	        	min = list.get(i);
+	        	list.remove(list.indexOf(min));
+	            list.add(0,min);
+	        }
 	    }
-	    for(int i=0;i<list.size();i++){
-			if(list.get(i).intValue() > largest){
-				largest = list.get(i).intValue();
-			}
+	    //list.remove(list.size() - 1);
+	    return list;
 		}
-	    for(int i=0;i<list.size();i++){
-			if(list.get(i).intValue() < smallest){
-				smallest = list.get(i).intValue();
-			}
-		}
-	    int range = largest-smallest;
-	    return range+1;
 	}
 }
